@@ -3,7 +3,7 @@ package io.github.lieonlion.lolmct;
 import io.github.lieonlion.lolmct.init.MctBlockInit;
 import io.github.lieonlion.lolmct.init.MctItemInit;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class MoreCraftingTables implements ModInitializer {
     public static final String MODID = "lolmct";
@@ -14,7 +14,7 @@ public class MoreCraftingTables implements ModInitializer {
         MctItemInit.registerItems();
     }
 
-    public static ResourceLocation asId(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MODID, path);
+    public static Identifier asId(String path) {
+        return Identifier.fromNamespaceAndPath(MODID, path);
     }
 }

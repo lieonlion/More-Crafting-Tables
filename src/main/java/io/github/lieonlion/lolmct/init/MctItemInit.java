@@ -2,7 +2,7 @@ package io.github.lieonlion.lolmct.init;
 
 import io.github.lieonlion.lolmct.MoreCraftingTables;
 import io.github.lieonlion.lolmct.block.MoreCraftingTableBlock;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -54,6 +54,6 @@ public class MctItemInit {
     public static void registerItem(Item item, Item after) {
         String name = ((MoreCraftingTableBlock)((BlockItem) item).getBlock()).woodType + "_crafting_table";
         Registry.register(BuiltInRegistries.ITEM, MoreCraftingTables.asId(name), item);
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> entries.addAfter(after, item));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(output -> output.insertAfter(after, item));
     }
 }
